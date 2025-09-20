@@ -1,0 +1,1026 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Abdullah - Professional CV</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --neon-blue: #00d9ff;
+            --neon-purple: #a855f7;
+        }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, #f0f4ff 0%, #e6e6ff 100%);
+            min-height: 100vh;
+            transition: background 0.3s ease;
+        }
+        
+        body.dark-mode {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+        }
+        
+        .print-friendly { print-color-adjust: exact; }
+        
+        /* Glass Morphism Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+        }
+        
+        .dark-mode .glass {
+            background: rgba(5, 25, 55, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px 0 rgba(2, 12, 35, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Light Reflection Effect */
+        .light-reflection::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg, 
+                rgba(255,255,255,0) 0%, 
+                rgba(255,255,255,0.1) 50%, 
+                rgba(255,255,255,0) 100%
+            );
+            transform: rotate(30deg);
+            animation: reflection 6s infinite linear;
+            pointer-events: none;
+        }
+        
+        @keyframes reflection {
+            0% { transform: translateY(-100%) rotate(30deg); }
+            100% { transform: translateY(100%) rotate(30deg); }
+        }
+        
+        /* Professional Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        @keyframes shimmer {
+            0% {
+                background-position: -200px 0;
+            }
+            100% {
+                background-position: calc(200px + 100%) 0;
+            }
+        }
+        
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .animate-slideInLeft {
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+        
+        .animate-slideInRight {
+            animation: slideInRight 0.8s ease-out forwards;
+        }
+        
+        .animate-scaleIn {
+            animation: scaleIn 0.6s ease-out forwards;
+        }
+        
+        .animate-pulse-custom {
+            animation: pulse 2s infinite;
+        }
+        
+        .shimmer-effect {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            background-size: 200px 100%;
+            animation: shimmer 2s infinite;
+        }
+        
+        .skill-tag {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+        
+        .skill-tag:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .experience-item {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .experience-item:hover::before {
+            left: 100%;
+        }
+        
+        .section-header {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+            transition: width 0.8s ease;
+            box-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+        }
+        
+        .section-header.animate::after {
+            width: 100%;
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .progress-bar {
+            position: relative;
+            background: rgba(59, 130, 246, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 4px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+            border-radius: 10px;
+            transform: translateX(-100%);
+            transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .progress-fill.animate {
+            transform: translateX(0);
+        }
+        
+        /* New styles for improved layout */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 0.75rem;
+        }
+        
+        .achievement-badge {
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            color: white;
+            border-radius: 9999px;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .mobile-optimized-section {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        @media (min-width: 768px) {
+            .mobile-optimized-section {
+                flex-direction: row;
+            }
+        }
+        
+        .highlight-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--neon-blue);
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.4);
+        }
+        
+        .metric-number {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        /* Social Media Icons */
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Gradient backgrounds for different sections */
+        .gradient-bg {
+            background: linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(139,92,246,0.1) 100%);
+        }
+        
+        /* Subtle pattern overlay */
+        .pattern-overlay {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .dark-mode .pattern-overlay {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        }
+        
+        /* Neon glow effects */
+        .neon-border {
+            box-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue);
+            border: 1px solid var(--neon-blue);
+        }
+        
+        .neon-text {
+            text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue);
+        }
+        
+        /* Project card hover effects */
+        .project-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -5px rgba(0, 217, 255, 0.3);
+        }
+        
+        /* Theme toggle button */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 90px;
+            z-index: 100;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        /* QR code container */
+        .qr-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            background: white;
+            padding: 5px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Lazy load animation */
+        .lazy-load {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .lazy-load.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Optimize animations for mobile */
+        @media (max-width: 768px) {
+            .floating {
+                animation: none;
+            }
+            
+            .animate-fadeInUp,
+            .animate-slideInLeft,
+            .animate-slideInRight,
+            .animate-scaleIn {
+                animation: none;
+                opacity: 1;
+                transform: none;
+            }
+            
+            .theme-toggle {
+                top: 10px;
+                right: 80px;
+                width: 40px;
+                height: 40px;
+            }
+            
+            .qr-container {
+                top: 10px;
+                right: 10px;
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 print-friendly">
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon text-gray-700" id="themeIcon"></i>
+    </div>
+
+    <!-- Background Elements -->
+    <div class="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
+        <div class="absolute top-10% left-10% w-64 h-64 bg-blue-400 rounded-full filter blur-3xl opacity-10 animate-pulse"></div>
+        <div class="absolute top-60% left-70% w-80 h-80 bg-purple-400 rounded-full filter blur-3xl opacity-10 animate-pulse" style="animation-delay: 1s;"></div>
+        <div class="absolute top-30% left-50% w-72 h-72 bg-indigo-400 rounded-full filter blur-3xl opacity-10 animate-pulse" style="animation-delay: 2s;"></div>
+    </div>
+
+    <div class="max-w-4xl mx-auto bg-white/80 backdrop-blur-lg rounded-2xl overflow-hidden shadow-xl border border-white/30 pattern-overlay dark:bg-gray-900/80 dark:border-gray-700/30">
+        <!-- Header Section with Glass Morphism -->
+        <div class="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white p-6 md:p-8 relative overflow-hidden glass-dark light-reflection dark:from-blue-900 dark:via-blue-800 dark:to-purple-900">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 animate-pulse-custom"></div>
+            <div class="relative z-10">
+                <!-- QR Code Container -->
+                <div class="qr-container glass" id="qrCode"></div>
+                
+                <div class="flex flex-col md:flex-row items-center gap-6">
+                    <div class="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden floating animate-scaleIn border-2 border-white/30 shadow-lg glass">
+                      <img src="https://i.ibb.co/N2gJnzBK/IMG-20250918-WA0012.jpg" 
+                           alt="Muhammad Abdullah Avatar" 
+                           class="w-full h-full object-cover">
+                    </div>
+                    <div class="text-center md:text-left flex-1 animate-slideInRight">
+                        <h1 class="text-3xl md:text-4xl font-bold mb-2 animate-fadeInUp">Muhammad Abdullah</h1>
+                        <h2 class="text-lg md:text-xl font-light mb-4 text-blue-100">Social Media Marketing Manager | Tech & AI Enthusiast</h2>
+                        
+                        <!-- Improved contact information layout -->
+                        <div class="contact-grid mt-4 text-sm md:text-base">
+                            <div class="flex items-center justify-center md:justify-start gap-2 hover:bg-white/10 px-3 py-2 rounded transition-all duration-300 glass">
+                                <i class="fas fa-envelope text-blue-200"></i>
+                                <span>brandelevatep@gmail.com</span>
+                            </div>
+                            <div class="flex items-center justify-center md:justify-start gap-2 hover:bg-white/10 px-3 py-2 rounded transition-all duration-300 glass">
+                                <i class="fab fa-whatsapp text-blue-200"></i>
+                                <span>+92 331 3222181</span>
+                            </div>
+                            <div class="flex items-center justify-center md:justify-start gap-2 hover:bg-white/10 px-3 py-2 rounded transition-all duration-300 glass">
+                                <i class="fas fa-map-marker-alt text-blue-200"></i>
+                                <span>Dera Ghazi Khan, Pakistan</span>
+                            </div>
+                            <div class="flex items-center justify-center md:justify-start gap-2 hover:bg-white/10 px-3 py-2 rounded transition-all duration-300 glass">
+                                <i class="fas fa-globe text-blue-200"></i>
+                                <span>Abdullah Tech Hub</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Social Media Links -->
+                        <div class="flex justify-center md:justify-start gap-3 mt-4">
+                            <a href="https://www.facebook.com/share/17JyBq3n4J/" target="_blank" class="social-icon">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/_muhammad_abdullah_ayoub?igsh=ZTF6OWN3NXF2Znpo" target="_blank" class="social-icon">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/muhammad-abdullah-807ba32a0?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="social-icon">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://x.com/MAbdullah65402?t=D3VPmp8TtLMk6Cp6kUcC1g&s=09" target="_blank" class="social-icon">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-purple-400 shimmer-effect"></div>
+        </div>
+
+        <div class="p-6 md:p-8">
+            <!-- Professional Summary -->
+            <section class="mb-8 lazy-load">
+                <h3 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4 border-b-2 border-blue-600 dark:border-neon-blue pb-2 section-header">
+                    <i class="fas fa-user-tie mr-2 text-blue-600 dark:text-neon-blue floating"></i>Professional Summary
+                </h3>
+                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/30 dark:to-indigo-900/30 p-6 rounded-lg border-l-4 border-blue-600 dark:border-neon-blue glass">
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Results-driven Social Media Marketing Manager and Digital Marketer with expertise in technology, artificial intelligence, and content automation. 
+                        Specialized in developing innovative marketing strategies that drive business growth through paid advertising and comprehensive social media management. 
+                        Proven success in Facebook & Instagram advertising, YouTube automation, and AI-powered content generation with a track record of delivering measurable results.
+                    </p>
+                    
+                    <!-- Key achievements badges -->
+                    <div class="mt-4 flex flex-wrap">
+                        <span class="achievement-badge"><i class="fas fa-chart-line mr-1"></i> ROI-focused campaigns</span>
+                        <span class="achievement-badge"><i class="fas fa-robot mr-1"></i> AI automation expert</span>
+                        <span class="achievement-badge"><i class="fas fa-bullseye mr-1"></i> Targeted advertising</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Metrics Section -->
+            <section class="mb-8 grid grid-cols-2 md:grid-cols-4 gap-4 lazy-load">
+                <div class="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-lg text-center highlight-card glass">
+                    <div class="metric-number">50+</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400 mt-1">Campaigns Managed</div>
+                </div>
+                <div class="bg-green-50 dark:bg-green-900/30 p-4 rounded-lg text-center highlight-card glass">
+                    <div class="metric-number">15%</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400 mt-1">Avg. Conversion Rate</div>
+                </div>
+                <div class="bg-purple-50 dark:bg-purple-900/30 p-4 rounded-lg text-center highlight-card glass">
+                    <div class="metric-number">200K+</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400 mt-1">Content Reach</div>
+                </div>
+                <div class="bg-orange-50 dark:bg-orange-900/30 p-4 rounded-lg text-center highlight-card glass">
+                    <div class="metric-number">99%</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400 mt-1">Client Satisfaction</div>
+                </div>
+            </section>
+
+            <div class="grid md:grid-cols-3 gap-8 mobile-optimized-section">
+                <!-- Left Column -->
+                <div class="md:col-span-2 space-y-8">
+                    <!-- Experience -->
+                    <section class="lazy-load">
+                        <h3 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4 border-b-2 border-blue-600 dark:border-neon-blue pb-2 section-header">
+                            <i class="fas fa-briefcase mr-2 text-blue-600 dark:text-neon-blue floating"></i>Experience
+                        </h3>
+                        
+                        <div class="space-y-6">
+                            <div class="border-l-4 border-blue-600 dark:border-neon-blue pl-4 experience-item bg-gradient-to-r from-white to-blue-50 dark:from-gray-800 dark:to-blue-900/30 p-4 rounded-r-lg shadow-sm hover:shadow-md transition-all duration-300 glass">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h4 class="text-lg font-semibold text-gray-800 dark:text-white">Marketing & Management Support</h4>
+                                    <span class="text-sm text-white bg-gradient-to-r from-blue-500 to-blue-700 dark:from-neon-blue dark:to-neon-purple px-3 py-1 rounded-full animate-pulse-custom">Current</span>
+                                </div>
+                                <p class="text-blue-600 dark:text-neon-blue font-medium mb-2">New Zam Zam Zari Service (Agriculture & Pesticides Shop)</p>
+                                <ul class="text-gray-700 dark:text-gray-300 space-y-1 text-sm">
+                                    <li class="hover:text-blue-600 dark:hover:text-neon-blue transition-colors duration-200 flex items-start">
+                                        <span class="text-blue-500 dark:text-neon-blue mr-2">•</span>
+                                        <span>Developed and implemented local marketing strategies that increased customer footfall by 25%</span>
+                                    </li>
+                                    <li class="hover:text-blue-600 dark:hover:text-neon-blue transition-colors duration-200 flex items-start">
+                                        <span class="text-blue-500 dark:text-neon-blue mr-2">•</span>
+                                        <span>Streamlined customer management processes, reducing response time by 40%</span>
+                                    </li>
+                                    <li class="hover:text-blue-600 dark:hover:text-neon-blue transition-colors duration-200 flex items-start">
+                                        <span class="text-blue-500 dark:text-neon-blue mr-2">•</span>
+                                        <span>Created targeted marketing campaigns for agricultural products that boosted sales by 30%</span>
+                                    </li>
+                                    <li class="hover:text-blue-600 dark:hover:text-neon-blue transition-colors duration-200 flex items-start">
+                                        <span class="text-blue-500 dark:text-neon-blue mr-2">•</span>
+                                        <span>Implemented customer relationship management system improving retention by 20%</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="border-l-4 border-blue-600 dark:border-neon-blue pl-4 experience-item bg-gradient-to-r from-white to-blue-50 dark:from-gray-800 dark:to-blue-900/30 p-4 rounded-r-lg shadow-sm hover:shadow-md transition-all duration-300 glass">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h4 class="text-lg font-semibold text-gray-800 dark:text-white">Freelance Digital Marketer</h4>
+                                    <span class="text-sm text-gray-500 dark:text-gray-400 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 px-3 py-1 rounded-full">Ongoing</span>
+                                </div>
+                                <p class="text-blue-600 dark:text-neon-blue font-medium mb-2">Fiverr & Upwork</p>
+                                <ul class="text-gray-700 dark:text-gray-300 space-y-1 text-sm">
+                                    <li class="hover:text-blue-600 dark:hover:text-neon-blue transition-colors duration-200 flex items-start">
+                                        <span class="text-blue-500 dark:text-neon-blue mr-2">•</span>
+                                        <span>Managed successful campaigns for real estate clients, generating over 250 qualified leads</span>
+                                    </li>
+                                    <li class="hover:text-blue-600 dark:hover:text-neon-blue transition-colors duration-200 flex items-start">
+                                        <span class="text-blue-500 dark:text-neon-blue mr-2">•</span>
+                                        <span>Developed free 5-day Facebook ad campaign trial that converted 30% of participants to paying clients</span>
+                                    </li>
+                                    <li class="hover:text-blue-600 dark:hover:text-neon-blue transition-colors duration-200 flex items-start">
+                                        <span class="text-blue-500 dark:text-neon-blue mr-2">•</span>
+                                        <span>Specialized in high-ticket SMMA, delivering an average ROI of 5x for clients</span>
+                                    </li>
+                                    <li class="hover:text-blue-600 dark:hover:text-neon-blue transition-colors duration-200 flex items-start">
+                                        <span class="text-blue-500 dark:text-neon-blue mr-2">•</span>
+                                        <span>Managed social media accounts with over 50,000 combined followers</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Projects -->
+                    <section class="lazy-load">
+                        <h3 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4 border-b-2 border-blue-600 dark:border-neon-blue pb-2 section-header">
+                            <i class="fas fa-project-diagram mr-2 text-blue-600 dark:text-neon-blue floating"></i>Projects
+                        </h3>
+                        
+                        <div class="space-y-4">
+                            <div class="project-card border-l-4 border-blue-600 dark:border-neon-blue pl-4 bg-gradient-to-r from-white to-blue-50 dark:from-gray-800 dark:to-blue-900/30 p-4 rounded-r-lg glass" data-link="https://youtube.com">
+                                <h4 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">Pocket Fuel (YouTube Channel)</h4>
+                                <p class="text-gray-700 dark:text-gray-300 text-sm mb-2">Personal finance content targeting USA-based audience with automated content generation.</p>
+                                <div class="mt-2 flex flex-wrap">
+                                    <span class="bg-blue-100 dark:bg-blue-800/50 text-blue-800 dark:text-blue-200 text-xs px-2 py-1 rounded mr-2 mb-2">YouTube Automation</span>
+                                    <span class="bg-blue-100 dark:bg-blue-800/50 text-blue-800 dark:text-blue-200 text-xs px-2 py-1 rounded mr-2 mb-2">Content Strategy</span>
+                                    <span class="bg-blue-100 dark:bg-blue-800/50 text-blue-800 dark:text-blue-200 text-xs px-2 py-1 rounded mr-2 mb-2">US Audience</span>
+                                </div>
+                            </div>
+                            
+                            <div class="project-card border-l-4 border-blue-600 dark:border-neon-blue pl-4 bg-gradient-to-r from-white to-blue-50 dark:from-gray-800 dark:to-blue-900/30 p-4 rounded-r-lg glass" data-link="https://facebook.com">
+                                <h4 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">Skillovize (Facebook Page)</h4>
+                                <p class="text-gray-700 dark:text-gray-300 text-sm mb-2">Offering multiple digital skill courses with engaging posts and educational content.</p>
+                                <div class="mt-2 flex flex-wrap">
+                                    <span class="bg-green-100 dark:bg-green-800/50 text-green-800 dark:text-green-200 text-xs px-2 py-1 rounded mr-2 mb-2">Education</span>
+                                    <span class="bg-green-100 dark:bg-green-800/50 text-green-800 dark:text-green-200 text-xs px-2 py-1 rounded mr-2 mb-2">Course Marketing</span>
+                                    <span class="bg-green-100 dark:bg-green-800/50 text-green-800 dark:text-green-200 text-xs px-2 py-1 rounded mr-2 mb-2">Content Creation</span>
+                                </div>
+                            </div>
+                            
+                            <div class="project-card border-l-4 border-blue-600 dark:border-neon-blue pl-4 bg-gradient-to-r from-white to-blue-50 dark:from-gray-800 dark:to-blue-900/30 p-4 rounded-r-lg glass" data-link="https://example.com">
+                                <h4 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">ChArGPT (AI Tool)</h4>
+                                <p class="text-gray-700 dark:text-gray-300 text-sm mb-2">Building a no-code business tool for social media content generation using AI technology.</p>
+                                <div class="mt-2 flex flex-wrap">
+                                    <span class="bg-purple-100 dark:bg-purple-800/50 text-purple-800 dark:text-purple-200 text-xs px-2 py-1 rounded mr-2 mb-2">AI Development</span>
+                                    <span class="bg-purple-100 dark:bg-purple-800/50 text-purple-800 dark:text-purple-200 text-xs px-2 py-1 rounded mr-2 mb-2">No-Code Solution</span>
+                                    <span class="bg-purple-100 dark:bg-purple-800/50 text-purple-800 dark:text-purple-200 text-xs px-2 py-1 rounded mr-2 mb-2">Content Automation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Education -->
+                    <section class="lazy-load">
+                        <h3 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4 border-b-2 border-blue-600 dark:border-neon-blue pb-2 section-header">
+                            <i class="fas fa-graduation-cap mr-2 text-blue-600 dark:text-neon-blue floating"></i>Education & Certifications
+                        </h3>
+                        
+                        <div class="border-l-4 border-blue-600 dark:border-neon-blue pl-4 experience-item bg-gradient-to-r from-white to-blue-50 dark:from-gray-800 dark:to-blue-900/30 p-4 rounded-r-lg glass">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="text-lg font-semibold text-gray-800 dark:text-white">Digital Marketing Certifications</h4>
+                                <span class="text-sm text-white bg-gradient-to-r from-green-500 to-green-700 dark:from-green-600 dark:to-green-800 px-2 py-1 rounded">Ongoing</span>
+                            </div>
+                            <p class="text-blue-600 dark:text-neon-blue font-medium mb-2">Self-Learning & Online Courses</p>
+                            <p class="text-gray-700 dark:text-gray-300 text-sm">Currently pursuing advanced Digital Marketing certifications with focus on social media marketing, AI tools, and content automation through reputable online platforms.</p>
+                            <div class="mt-3 flex flex-wrap">
+                                <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs px-2 py-1 rounded mr-2 mb-2">Facebook Blueprint</span>
+                                <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs px-2 py-1 rounded mr-2 mb-2">Google Ads Certification</span>
+                                <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs px-2 py-1 rounded mr-2 mb-2">AI Content Strategies</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Right Column -->
+                <div class="space-y-8">
+                    <!-- Skills -->
+                    <section class="lazy-load">
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-4 border-b-2 border-blue-600 dark:border-neon-blue pb-2 section-header">
+                            <i class="fas fa-code mr-2 text-blue-600 dark:text-neon-blue floating"></i>Skills
+                        </h3>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-medium text-gray-800 dark:text-white mb-3 flex items-center">
+                                    <i class="fas fa-bullhorn mr-2 text-blue-500 dark:text-neon-blue"></i>Social Media Marketing
+                                </h4>
+                                <div class="progress-bar mb-2">
+                                    <div class="progress-fill skill-progress" data-width="95%"></div>
+                                </div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gradient-to-r from-blue-100 to-blue-200 dark:from-blue-800/50 dark:to-blue-700/50 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm skill-tag glass">Facebook Ads</span>
+                                    <span class="bg-gradient-to-r from-blue-100 to-blue-200 dark:from-blue-800/50 dark:to-blue-700/50 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm skill-tag glass">Instagram Ads</span>
+                                    <span class="bg-gradient-to-r from-blue-100 to-blue-200 dark:from-blue-800/50 dark:to-blue-700/50 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm skill-tag glass">Account Management</span>
+                                    <span class="bg-gradient-to-r from-blue-100 to-blue-200 dark:from-blue-800/50 dark:to-blue-700/50 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm skill-tag glass">SMMA</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h4 class="font-medium text-gray-800 dark:text-white mb-3 flex items-center">
+                                    <i class="fas fa-robot mr-2 text-green-500 dark:text-neon-blue"></i>AI & Automation
+                                </h4>
+                                <div class="progress-bar mb-2">
+                                    <div class="progress-fill skill-progress" data-width="90%"></div>
+                                </div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gradient-to-r from-green-100 to-green-200 dark:from-green-800/50 dark:to-green-700/50 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-sm skill-tag glass">YouTube Automation</span>
+                                    <span class="bg-gradient-to-r from-green-100 to-green-200 dark:from-green-800/50 dark:to-green-700/50 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-sm skill-tag glass">AI Content Generation</span>
+                                    <span class="bg-gradient-to-r from-green-100 to-green-200 dark:from-green-800/50 dark:to-green-700/50 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-sm skill-tag glass">ChatGPT</span>
+                                    <span class="bg-gradient-to-r from-green-100 to-green-200 dark:from-green-800/50 dark:to-green-700/50 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-sm skill-tag glass">No-Code Tools</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h4 class="font-medium text-gray-800 dark:text-white mb-3 flex items-center">
+                                    <i class="fas fa-chart-line mr-2 text-purple-500 dark:text-neon-blue"></i>Digital Marketing
+                                </h4>
+                                <div class="progress-bar mb-2">
+                                    <div class="progress-fill skill-progress" data-width="85%"></div>
+                                </div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gradient-to-r from-purple-100 to-purple-200 dark:from-purple-800/50 dark:to-purple-700/50 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full text-sm skill-tag glass">Digital Strategy</span>
+                                    <span class="bg-gradient-to-r from-purple-100 to-purple-200 dark:from-purple-800/50 dark:to-purple-700/50 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full text-sm skill-tag glass">Tech Blogging</span>
+                                    <span class="bg-gradient-to-r from-purple-100 to-purple-200 dark:from-purple-800/50 dark:to-purple-700/50 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full text-sm skill-tag glass">SEO Basics</span>
+                                    <span class="bg-gradient-to-r from-purple-100 to-purple-200 dark:from-purple-800/50 dark:to-purple-700/50 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full text-sm skill-tag glass">Content Creation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Services -->
+                    <section class="lazy-load">
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-4 border-b-2 border-blue-600 dark:border-neon-blue pb-2 section-header">
+                            <i class="fas fa-cogs mr-2 text-blue-600 dark:text-neon-blue floating"></i>Services
+                        </h3>
+                        
+                        <div class="space-y-3">
+                            <div class="bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 p-3 rounded-lg border-l-4 border-blue-500 dark:border-neon-blue experience-item glass">
+                                <h4 class="font-medium text-gray-800 dark:text-white text-sm">Facebook & Instagram Ads Setup</h4>
+                                <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">Complete campaign creation and optimization</p>
+                            </div>
+                            <div class="bg-gradient-to-r from-green-50 to-green-100 dark:from-green-900/30 dark:to-green-800/30 p-3 rounded-lg border-l-4 border-green-500 dark:border-neon-blue experience-item glass">
+                                <h4 class="font-medium text-gray-800 dark:text-white text-sm">Social Media Account Management</h4>
+                                <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">Full management and growth strategies</p>
+                            </div>
+                            <div class="bg-gradient-to-r from-purple-50 to-purple-100 dark:from-purple-900/30 dark:to-purple-800/30 p-3 rounded-lg border-l-4 border-purple-500 dark:border-neon-blue experience-item glass">
+                                <h4 class="font-medium text-gray-800 dark:text-white text-sm">YouTube Automation</h4>
+                                <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">Channel setup and content automation</p>
+                            </div>
+                            <div class="bg-gradient-to-r from-orange-50 to-orange-100 dark:from-orange-900/30 dark:to-orange-800/30 p-3 rounded-lg border-l-4 border-orange-500 dark:border-neon-blue experience-item glass">
+                                <h4 class="font-medium text-gray-800 dark:text-white text-sm">AI-Powered Content Generation</h4>
+                                <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">Automated content creation solutions</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Languages -->
+                    <section class="lazy-load">
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-4 border-b-2 border-blue-600 dark:border-neon-blue pb-2 section-header">
+                            <i class="fas fa-globe mr-2 text-blue-600 dark:text-neon-blue floating"></i>Languages
+                        </h3>
+                        
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center bg-gradient-to-r from-green-50 to-green-100 dark:from-green-900/30 dark:to-green-800/30 p-3 rounded experience-item glass">
+                                <span class="text-gray-700 dark:text-gray-300 font-medium">Urdu</span>
+                                <span class="text-green-600 dark:text-green-400 text-sm font-semibold bg-green-100 dark:bg-green-800/50 px-2 py-1 rounded">Native</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 p-3 rounded experience-item glass">
+                                <span class="text-gray-700 dark:text-gray-300 font-medium">English</span>
+                                <span class="text-blue-600 dark:text-blue-400 text-sm font-semibold bg-blue-100 dark:bg-blue-800/50 px-2 py-1 rounded">Fluent</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Testimonials -->
+                    <section class="lazy-load">
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-4 border-b-2 border-blue-600 dark:border-neon-blue pb-2 section-header">
+                            <i class="fas fa-star mr-2 text-blue-600 dark:text-neon-blue floating"></i>Client Feedback
+                        </h3>
+                        
+                        <div class="bg-gradient-to-r from-yellow-50 to-yellow-100 dark:from-yellow-900/30 dark:to-yellow-800/30 p-4 rounded-lg border-l-4 border-yellow-500 dark:border-neon-blue experience-item glass">
+                            <p class="text-gray-700 dark:text-gray-300 text-sm italic">"Muhammad delivered exceptional results for our real estate campaign, generating over 50 qualified leads in the first month with a 15% conversion rate."</p>
+                            <p class="text-gray-600 dark:text-gray-400 text-xs mt-2 font-medium">- Real Estate Client</p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="bg-gray-100 dark:bg-gray-800 p-4 text-center glass">
+            <p class="text-gray-600 dark:text-gray-400 text-sm">
+                <i class="fas fa-print mr-2"></i>This CV is optimized for both digital viewing and printing
+            </p>
+        </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="fixed bottom-6 right-6 flex flex-col gap-4 print:hidden">
+        <button id="printBtn" class="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 glass flex items-center">
+            <i class="fas fa-print mr-2"></i>Print CV
+        </button>
+        
+        <button id="downloadPdfBtn" class="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 glass flex items-center">
+            <i class="fas fa-download mr-2"></i>Download PDF
+        </button>
+    </div>
+
+    <script>
+        // Enhanced interactive functionality with professional animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize QR Code
+            const qrElement = document.getElementById('qrCode');
+            new QRCode(qrElement, {
+                text: 'https://www.linkedin.com/in/muhammad-abdullah-807ba32a0',
+                width: 70,
+                height: 70,
+                colorDark : '#000000',
+                colorLight : '#ffffff',
+                correctLevel : QRCode.CorrectLevel.H
+            });
+
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            const body = document.body;
+            
+            // Check for saved theme preference or respect OS preference
+            if (localStorage.getItem('theme') === 'dark' || 
+                (window.matchMedia('(prefers-color-scheme: dark)').matches && !localStorage.getItem('theme'))) {
+                body.classList.add('dark-mode');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+            
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                if (body.classList.contains('dark-mode')) {
+                    localStorage.setItem('theme', 'dark');
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                }
+            });
+
+            // Print functionality
+            const printBtn = document.getElementById('printBtn');
+            printBtn.addEventListener('click', () => {
+                printBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Printing...';
+                setTimeout(() => {
+                    window.print();
+                    setTimeout(() => {
+                        printBtn.innerHTML = '<i class="fas fa-print mr-2"></i>Print CV';
+                    }, 500);
+                }, 500);
+            });
+
+            // Download PDF functionality
+            const downloadPdfBtn = document.getElementById('downloadPdfBtn');
+            downloadPdfBtn.addEventListener('click', () => {
+                downloadPdfBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Generating PDF...';
+                
+                // Hide action buttons before generating PDF
+                document.querySelectorAll('button').forEach(btn => {
+                    btn.style.display = 'none';
+                });
+                
+                const element = document.querySelector('.max-w-4xl');
+                const opt = {
+                    margin: 10,
+                    filename: 'Muhammad_Abdullah_CV.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2 },
+                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                };
+                
+                setTimeout(() => {
+                    html2pdf().set(opt).from(element).save().then(() => {
+                        // Show buttons again after PDF generation
+                        document.querySelectorAll('button').forEach(btn => {
+                            btn.style.display = 'flex';
+                        });
+                        downloadPdfBtn.innerHTML = '<i class="fas fa-download mr-2"></i>Download PDF';
+                    });
+                }, 500);
+            });
+
+            // Project card click functionality
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const link = this.getAttribute('data-link');
+                    if (link) {
+                        window.open(link, '_blank');
+                    }
+                });
+                
+                // Add hover effect with cursor pointer
+                card.style.cursor = 'pointer';
+            });
+
+            // Lazy load animation
+            const lazyLoadElements = document.querySelectorAll('.lazy-load');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            lazyLoadElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            // Animate skill progress bars with delay for performance
+            const skillProgressBars = document.querySelectorAll('.skill-progress');
+            skillProgressBars.forEach((bar, index) => {
+                setTimeout(() => {
+                    const width = bar.getAttribute('data-width');
+                    bar.style.width = width;
+                    bar.classList.add('animate');
+                }, 300 + (index * 200));
+            });
+
+            // Add interactive skill tags
+            document.querySelectorAll('.skill-tag').forEach(tag => {
+                tag.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                    
+                    // Create floating effect
+                    const rect = this.getBoundingClientRect();
+                    const floatingText = document.createElement('div');
+                    floatingText.textContent = '✨';
+                    floatingText.style.cssText = `
+                        position: fixed;
+                        left: ${rect.left + rect.width/2}px;
+                        top: ${rect.top}px;
+                        pointer-events: none;
+                        font-size: 20px;
+                        z-index: 1000;
+                        animation: floatUp 1s ease-out forwards;
+                    `;
+                    document.body.appendChild(floatingText);
+                    setTimeout(() => floatingText.remove(), 1000);
+                });
+            });
+
+            // Add floating animation keyframes
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes floatUp {
+                    0% { opacity: 1; transform: translateY(0px) scale(1); }
+                    100% { opacity: 0; transform: translateY(-50px) scale(1.5); }
+                }
+            `;
+            document.head.appendChild(style);
+
+            // Enhanced experience item interactions
+            document.querySelectorAll('.experience-item').forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(5px)';
+                    this.style.boxShadow = '0 10px 25px rgba(59, 130, 246, 0.15)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                    this.style.boxShadow = '';
+                });
+            });
+
+            // Add smooth scroll behavior for better UX
+            document.documentElement.style.scrollBehavior = 'smooth';
+
+            // Create particle effect on header
+            function createParticle() {
+                const particle = document.createElement('div');
+                particle.style.cssText = `
+                    position: absolute;
+                    width: 4px;
+                    height: 4px;
+                    background: rgba(255, 255, 255, 0.6);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    animation: particleFloat 4s linear infinite;
+                `;
+                
+                const header = document.querySelector('.bg-gradient-to-r');
+                if (header) {
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.top = '100%';
+                    header.appendChild(particle);
+                    
+                    setTimeout(() => particle.remove(), 4000);
+                }
+            }
+
+            // Add particle animation
+            const particleStyle = document.createElement('style');
+            particleStyle.textContent = `
+                @keyframes particleFloat {
+                    0% { transform: translateY(0px) rotate(0deg); opacity: 0; }
+                    10% { opacity: 1; }
+                    90% { opacity: 1; }
+                    100% { transform: translateY(-200px) rotate(360deg); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(particleStyle);
+
+            // Create particles periodically (only on desktop)
+            if (window.innerWidth > 768) {
+                setInterval(createParticle, 2000);
+            }
+        });
+    </script>
+</body>
+</html>
